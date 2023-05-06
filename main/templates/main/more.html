@@ -1,0 +1,770 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+
+
+<button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled"></button>
+
+
+<div id="content" class="app-content">
+    
+    <div id="carousel" class="mb-5">
+
+
+<div class="card" >
+<div class="card-body" style="height: 180px">
+<div id="carouselExample" class="carousel slide"  data-bs-ride="carousel" data-bs-interval="5000">
+<ol class="carousel-indicators">
+<li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+<li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+<li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+    <a target="_blank" href="https://curlfinance.com/">
+<img height="150px" src="{% static '1111.webp' %}" alt="" class="d-block w-100" />
+<div class="carousel-caption d-none d-md-block">
+
+</div>
+</a>
+</div>
+
+<div class="carousel-item">
+    
+    <a target="_blank" href="https://medium.com/@hello_4054/the-world-of-decentralized-finance-defi-is-booming-with-new-platforms-and-products-popping-up-7737c6420296?source=twitterShare-cb1390f001b5-1679140696&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9bLTU3JLM3VS87P1fdKSTN0DPJ3Ta9Mso8vSk1LLSpKLbItKc8sKUktAgB5uDyPNQAAAA%3D%3D&_referrer=twitter&_branch_match_id=1176552812907959374">
+<img height="150px" src="{% static '2222.webp' %}" alt="" class="d-block w-100" />
+<div class="carousel-caption d-none d-md-block">
+
+</div>
+</a>
+</div>
+
+<div class="carousel-item">
+    <a target="_blank" href="https://spoon.exchange/">
+<img height="150px" src="{% static 'poon.webp' %}" alt="" class="d-block w-100" />
+<div class="carousel-caption d-none d-md-block">
+
+</div>
+</a>
+</div>
+
+
+</div>
+<a class="carousel-control-prev" href="#carouselExample" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#carouselExample" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</a>
+</div>
+</div>
+<div class="card-arrow">
+<div class="card-arrow-top-left"></div>
+<div class="card-arrow-top-right"></div>
+<div class="card-arrow-bottom-left"></div>
+<div class="card-arrow-bottom-right"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="content" class="app-content py-3">
+			<div class="data-management d-none" data-id="table">
+				<table class="table table-bordered table-xs w-100 fw-semibold text-nowrap mb-3" id="datatable">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Item Name</th>
+							<th>Price</th>
+							<th>1h</th>
+							<th>6h</th>
+							<th>24h</th>
+							<th>24h Volume</th>
+							<th>Total Supply</th>
+							<th>FDV</th>
+							
+						</tr>
+					</thead>
+					<tbody class="text-body">
+						<tr>
+							
+							<td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:pepe' %}"><img src="{% static 'assets/img/logo/pepe15.webp' %}" alt=""> {{ pepebaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ pepepriceUsd }}</td>
+							{% if pepepriceChange.h1 > 0 %}
+							<td class="text-success">+{{ pepepriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ pepepriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if pepepriceChange.h6 > 0 %}
+							<td class="text-success">+{{ pepepriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ pepepriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if pepepriceChange.h24 > 0 %}
+							<td class="text-success">+{{ pepepriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ pepepriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ pepevolume.h24|floatformat:2|intcomma}}</td>
+							<td>499,599,554.64</td>
+							<td>{{ pepefdv|intcomma }}</td>
+							
+						</tr>
+						
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:coredoge' %}"><img src="{% static 'assets/img/logo/cdc.webp' %}" alt="">{{ cdcbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ cdcpriceUsd }}</td>
+							{% if cdcpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ cdcpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ cdcpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if cdcpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ cdcpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ cdcpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if cdcpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ cdcpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ cdcpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ cdcvolume.h24|floatformat:2|intcomma}}</td>
+							<td>499,599,554.64</td>
+							<td>{{ cdcfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:spoon' %}"><img src="{% static 'assets/img/logo/poon.webp' %}" alt="">  {{ spoonbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ spoonpriceUsd }}</td>
+							{% if spoonpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ spoonpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ spoonpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if spoonpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ spoonpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ spoonpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if spoonpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ spoonpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ spoonpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ spoonvolume.h24|floatformat:2|intcomma}}</td>
+							<td>10,240,710.4</td>
+							<td>{{ spoonfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:woof' %}"><img src="{% static 'assets/img/logo/woof.webp' %}" alt="">  {{ woofbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ woofpriceUsd }}</td>
+							{% if woofpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ woofpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ woofpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if woofpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ woofpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ woofpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if woofpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ woofpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ woofpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ woofvolume.h24|floatformat:2|intcomma}}</td>
+							<td>5,999,999</td>
+							<td>{{ wooffdv|intcomma }}</td>
+							
+						</tr>
+						
+						
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:bow' %}"><img src="{% static 'assets/img/logo/bow15.webp' %}" alt=""> {{ bowbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ bowpriceUsd }}</td>
+							{% if bowpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ bowpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ bowpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if bowpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ bowpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ bowpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if bowpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ bowpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ bowpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ bowvolume.h24|floatformat:2|intcomma}}</td>
+							<td>1,672,114.3</td>
+							<td>{{ bowfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:coreid' %}"><img src="{% static 'assets/img/logo/cid15.webp' %}" alt="">{{ coreidbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ coreidpriceUsd }}</td>
+							{% if coreidpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ coreidpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ coreidpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if coreidpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ coreidpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ coreidpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if coreidpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ coreidpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ coreidpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ coreidvolume.h24|floatformat:2|intcomma}}</td>
+							<td>48,571,623.3</td>
+							<td>{{ coreidfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:4token' %}"><img src="{% static 'assets/img/logo/yieldz.webp' %}" alt=""> {{ scorebaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ scorepriceUsd }}</td>
+							{% if scorepriceChange.h1 > 0 %}
+							<td class="text-success">+{{ scorepriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ scorepriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if scorepriceChange.h6 > 0 %}
+							<td class="text-success">+{{ scorepriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ scorepriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if scorepriceChange.h24 > 0 %}
+							<td class="text-success">+{{ scorepriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ scorepriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ scorevolume.h24|floatformat:2|intcomma}}</td>
+							<td>10,107,904.1</td>
+							<td>{{ scorefdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:block' %}"><img src="{% static 'assets/img/logo/block.webp' %}" alt="">{{ blockbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ blockpriceUsd }}</td>
+							{% if blockpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ blockpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ blockpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if blockpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ blockpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ blockpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if blockpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ blockpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ blockpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ blockvolume.h24|floatformat:2|intcomma}}</td>
+							<td>100,000,000</td>
+							<td>{{ blockfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:3dc' %}"><img src="{% static 'assets/img/logo/3dc.webp' %}" alt="">  {{ dcbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ dcpriceUsd }}</td>
+							{% if dcpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ dcpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ dcpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if dcpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ dcpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ dcpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if dcpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ dcpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ dcpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ dcvolume.h24|floatformat:2|intcomma}}</td>
+							<td>100,000,000</td>
+							<td>{{ dcfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:ice' %}"><img src="{% static 'assets/img/logo/ice15.webp' %}" alt="">{{ icebaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ icepriceUsd }}</td>
+							{% if icepriceChange.h1 > 0 %}
+							<td class="text-success">+{{ icepriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ icepriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if icepriceChange.h6 > 0 %}
+							<td class="text-success">+{{ icepriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ icepriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if icepriceChange.h24 > 0 %}
+							<td class="text-success">+{{ icepriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ icepriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ icevolume.h24|floatformat:2|intcomma}}</td>
+							<td>100,000,000</td>
+							<td>{{ icefdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:miidas' %}"><img src="{% static 'assets/img/logo/miidas15.webp' %}" alt=""> {{ miidasbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ miidaspriceUsd }}</td>
+							{% if miidaspriceChange.h1 > 0 %}
+							<td class="text-success">+{{ miidaspriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ miidaspriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if miidaspriceChange.h6 > 0 %}
+							<td class="text-success">+{{ miidaspriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ miidaspriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if miidaspriceChange.h24 > 0 %}
+							<td class="text-success">+{{ miidaspriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ miidaspriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ miidasvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 1,000,000,000</td>
+							<td>{{ miidasfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:hobo' %}"><img src="{% static 'assets/img/logo/hobo.webp' %}" alt=""> {{ hobobaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ hobopriceUsd }}</td>
+							{% if hobopriceChange.h1 > 0 %}
+							<td class="text-success">+{{ hobopriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ hobopriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if hobopriceChange.h6 > 0 %}
+							<td class="text-success">+{{ hobopriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ hobopriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if hobopriceChange.h24 > 0 %}
+							<td class="text-success">+{{ hobopriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ hobopriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ hobovolume.h24|floatformat:2|intcomma}}</td>
+							<td> 30,000,000</td>
+							<td>{{ hobofdv|intcomma }}</td>
+							
+						</tr>
+						
+						
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:map' %}"><img src="{% static 'assets/img/logo/map.webp' %}" alt=""> {{ mapbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ mappriceUsd }}</td>
+							{% if mappriceChange.h1 > 0 %}
+							<td class="text-success">+{{ mappriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ mappriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if mappriceChange.h6 > 0 %}
+							<td class="text-success">+{{ mappriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ mappriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if mappriceChange.h24 > 0 %}
+							<td class="text-success">+{{ mappriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ mappriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ mapvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 20,714,972,071.72</td>
+							<td>{{ mapfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:ypc' %}"><img src="{% static 'assets/img/logo/ypc.webp' %}" alt=""> {{ ypcbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ ypcpriceUsd }}</td>
+							{% if ypcpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ ypcpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ypcpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if ypcpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ ypcpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ypcpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if ypcpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ ypcpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ypcpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ ypcvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 1,813,095,504,267</td>
+							<td>{{ ypcfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:4token' %}"><img src="{% static 'assets/img/logo/ignore.webp' %}" alt=""> {{ ignorefudbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ ignorefudpriceUsd }}</td>
+							{% if ignorefudpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ ignorefudpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ignorefudpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if ignorefudpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ ignorefudpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ignorefudpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if ignorefudpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ ignorefudpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ignorefudpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ ignorefudvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 39,252,292,474</td>
+							<td>{{ ignorefudfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:lfgswap' %}"><img src="{% static 'assets/img/logo/lfg.webp' %}" alt=""> {{ lfgswapbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ lfgswappriceUsd }}</td>
+							{% if lfgswappriceChange.h1 > 0 %}
+							<td class="text-success">+{{ lfgswappriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ lfgswappriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if lfgswappriceChange.h6 > 0 %}
+							<td class="text-success">+{{ lfgswappriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ lfgswappriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if lfgswappriceChange.h24 > 0 %}
+							<td class="text-success">+{{ lfgswappriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ lfgswappriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ lfgswapvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 10,006,121</td>
+							<td>{{ lfgswapfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:shadowswap' %}"><img src="{% static 'assets/img/logo/shadow.webp' %}" alt=""> {{ shadowbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ shadowpriceUsd }}</td>
+							{% if shadowpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ shadowpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ shadowpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if shadowpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ shadowpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ shadowpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if shadowpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ shadowpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ shadowpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ shadowvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 100,000,000</td>
+							<td>{{ shadowfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:crest' %}"><img src="{% static 'assets/img/logo/crest.webp' %}" alt=""> {{ crestbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ crestpriceUsd }}</td>
+							{% if crestpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ crestpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ crestpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if crestpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ crestpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ crestpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if crestpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ crestpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ crestpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ crestvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 100,000,000</td>
+							<td>{{ crestfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:cshare' %}"><img src="{% static 'assets/img/logo/share.webp' %}" alt=""> {{ csharebaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ csharepriceUsd }}</td>
+							{% if csharepriceChange.h1 > 0 %}
+							<td class="text-success">+{{ csharepriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ csharepriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if csharepriceChange.h6 > 0 %}
+							<td class="text-success">+{{ csharepriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ csharepriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if csharepriceChange.h24 > 0 %}
+							<td class="text-success">+{{ csharepriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ csharepriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ csharevolume.h24|floatformat:2|intcomma}}</td>
+							<td> 45,922</td>
+							<td>{{ csharefdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:ctomb' %}"><img src="{% static 'assets/img/logo/tomb.webp' %}" alt=""> {{ ctombbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ ctombpriceUsd }}</td>
+							{% if ctombpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ ctombpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ctombpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if ctombpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ ctombpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ctombpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if ctombpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ ctombpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ ctombpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ ctombvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 13,968</td>
+							<td>{{ ctombfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:word' %}"><img src="{% static 'assets/img/logo/word.webp' %}" alt=""> {{ wordbaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ wordpriceUsd }}</td>
+							{% if wordpriceChange.h1 > 0 %}
+							<td class="text-success">+{{ wordpriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ wordpriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if wordpriceChange.h6 > 0 %}
+							<td class="text-success">+{{ wordpriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ wordpriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if wordpriceChange.h24 > 0 %}
+							<td class="text-success">+{{ wordpriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ wordpriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ wordvolume.h24|floatformat:2|intcomma}}</td>
+							<td> 10,000,000</td>
+							<td>{{ wordfdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:royale' %}"><img src="{% static 'assets/img/logo/royale.webp' %}" alt=""> {{ royalebaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ royalepriceUsd }}</td>
+							{% if royalepriceChange.h1 > 0 %}
+							<td class="text-success">+{{ royalepriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ royalepriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if royalepriceChange.h6 > 0 %}
+							<td class="text-success">+{{ royalepriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ royalepriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if royalepriceChange.h24 > 0 %}
+							<td class="text-success">+{{ royalepriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ royalepriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ royalevolume.h24|floatformat:2|intcomma}}</td>
+							<td> 118,091,711,820,253</td>
+							<td>{{ royalefdv|intcomma }}</td>
+							
+						</tr>
+						
+						<tr>
+						    <td></td>
+							<td><a style="text-decoration:none" href="{% url 'main:yfi' %}"><img src="{% static 'assets/img/logo/yfi15.webp' %}" alt=""> {{ yfibaseToken.symbol }}</a></td>
+							
+							<td class="text-success">${{ yfipriceUsd }}</td>
+							{% if yfipriceChange.h1 > 0 %}
+							<td class="text-success">+{{ yfipriceChange.h1 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ yfipriceChange.h1 }}%</td>
+							{% endif %}
+							
+							{% if yfipriceChange.h6 > 0 %}
+							<td class="text-success">+{{ yfipriceChange.h6 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ yfipriceChange.h6 }}%</td>
+							{% endif %}
+							
+							{% if yfipriceChange.h24 > 0 %}
+							<td class="text-success">+{{ yfipriceChange.h24 }}%</td>
+							{% else %}
+							<td class="text-danger">{{ yfipriceChange.h24 }}%</td>
+							{% endif %}
+							<td>${{ yfivolume.h24|floatformat:2|intcomma}}</td>
+							<td> 36,666</td>
+							<td>{{ yfifdv|intcomma }}</td>
+							
+						</tr>
+						
+					</tbody>
+					<tfoot>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+
+
+
+{% endblock %}

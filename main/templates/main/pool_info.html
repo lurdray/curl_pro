@@ -1,0 +1,59 @@
+
+{% extends "main/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+
+
+
+<div id="content" class="app-content py-3">
+            <div class="data-management d-none" data-id="table">
+                {% if pool_data %}
+                    <table class="table table-bordered table-xs w-100 fw-semibold text-nowrap mb-3" id="datatable">
+                        <thead>
+                            <tr>
+                                <th class="no-sort"></th>
+                                
+                                <th>Pool</th>
+                                <th>Price</th>
+                                <th>Price Change</th>
+                                <th>Buy Vol</th>
+                                <th>Address</th>
+                                <th>View Details</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-body">
+                            {% for pool in pool_data %}
+                                                        <tr>
+                                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#modalDetail"><i class="fa fa-search fa-fw"></i></a></td>
+                            
+                                                            
+                                                            <td><a style="text-decoration:none" href="{% url 'main:token_detail' token_id=pool.address %}">{{ pool.name }}</a></td>
+                                                            <td>{{ pool.price|floatformat:6 }}</td>
+                                                            <td>{{ pool.price_percent_change }}</td>
+                                                            <td>{{ pool.from_volume_in_usd|floatformat:2 }}</td>
+                                                            <td style="overflow:hidden !important">{{ pool.address }}</td>
+                                                            <td><a class="btn btn-outline-theme btn-sm" href="{% url 'main:token_detail' token_id=pool.address %}">View Details</a></td>
+                                                        </tr>
+                                                        {% endfor %}
+                           </tbody>
+                        
+                    </table>
+                {% else %}
+                    <h1>Sorry, no data found</h1>
+                {% endif %}
+                
+                <a class="btn btn-outline-theme btn-sm" href="{% url 'main:pool_info' back_page %}">Previous Page</a>
+                <a class="btn btn-outline-theme btn-sm" href="{% url 'main:pool_info' next_page %}">Next Page</a>
+                                        
+                                        
+            </div>
+            
+        </div>
+
+   
+
+{% endblock %}
+	
