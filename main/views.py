@@ -1156,13 +1156,13 @@ def NoneView(request):
             "spoonpriceChange":spoonpriceChange, 
             "spoonfdv":spoonfdv,
             
-            "cdc":cdc, 
-            "cdcbaseToken":cdcbaseToken, 
-            "cdcpriceNative":cdcpriceNative, 
-            "cdcpriceUsd":cdcpriceUsd, 
-            "cdcvolume":cdcvolume, 
-            "cdcpriceChange":cdcpriceChange, 
-            "cdcfdv":cdcfdv,
+            #"cdc":cdc, 
+            #"cdcbaseToken":cdcbaseToken, 
+            #"cdcpriceNative":cdcpriceNative, 
+            #"cdcpriceUsd":cdcpriceUsd, 
+            #"cdcvolume":cdcvolume, 
+            #"cdcpriceChange":cdcpriceChange, 
+            #"cdcfdv":cdcfdv,
         }
         return render(request, "main/none.html", context)
 
@@ -1470,7 +1470,7 @@ def IndexView(request):
         #candyfdv = candypairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronCdc(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronIgnore()]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronIgnore()]
         
         try:
             loop = asyncio.get_event_loop()
@@ -1700,12 +1700,12 @@ def IndexView(request):
             "spoonfdv":spoonfdv,
             
             #"cdc":cdc, 
-            "cdcbaseToken":cdcbaseToken, 
-            "cdcpriceNative":cdcpriceNative, 
-            "cdcpriceUsd":cdcpriceUsd, 
-            "cdcvolume":cdcvolume, 
-            "cdcpriceChange":cdcpriceChange, 
-            "cdcfdv":cdcfdv,
+            #"cdcbaseToken":cdcbaseToken, 
+            #"cdcpriceNative":cdcpriceNative, 
+            #"cdcpriceUsd":cdcpriceUsd, 
+            #"cdcvolume":cdcvolume, 
+            #"cdcpriceChange":cdcpriceChange, 
+            #"cdcfdv":cdcfdv,
             
             #"pepe":pepe, 
             "pepebaseToken":pepebaseToken, 
@@ -1843,7 +1843,7 @@ def MoreView(request):
         #candyfdv = candypairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronCdc(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(),]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(),]
         loop = asyncio.get_event_loop()
         
         results, pending = loop.run_until_complete(asyncio.wait(futures))
@@ -2296,13 +2296,13 @@ def MoreView(request):
             "spoonpriceChange":spoonpriceChange, 
             "spoonfdv":spoonfdv,
             
-            "cdc":cdc, 
-            "cdcbaseToken":cdcbaseToken, 
-            "cdcpriceNative":cdcpriceNative, 
-            "cdcpriceUsd":cdcpriceUsd, 
-            "cdcvolume":cdcvolume, 
-            "cdcpriceChange":cdcpriceChange, 
-            "cdcfdv":cdcfdv,
+            #"cdc":cdc, 
+            #"cdcbaseToken":cdcbaseToken, 
+            #"cdcpriceNative":cdcpriceNative, 
+            #"cdcpriceUsd":cdcpriceUsd, 
+            #"cdcvolume":cdcvolume, 
+            #"cdcpriceChange":cdcpriceChange, 
+            #"cdcfdv":cdcfdv,
             
             "cshare":cshare, 
             "csharebaseToken":csharebaseToken, 
