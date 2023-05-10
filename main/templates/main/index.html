@@ -133,7 +133,7 @@
 
 <div class="col-lg-6 mb-3 mb-lg-0">
 <div class="d-flex align-items-center">
-<a style="text-decoration:none" href="{% url 'main:core' %}">
+<a style="text-decoration:none" href="{% url 'main:ice' %}">
 <div class="w-50px h-50px">
 <img  src="https://assets.coingecko.com/coins/images/26237/small/icecream.png?1656902080" alt="">
 </div>
@@ -241,6 +241,15 @@
 
 </tr>
 <!--fuse ends-->
+
+<!--pepe starts-->
+<tr>
+
+<td><a style="text-decoration:none" href="{% url 'main:pepe' %}"><img src="{% static 'assets/img/logo/pepe15.webp' %}" alt=""> {{ pepebaseToken.name }}</a></td>
+<td class="text-end">{{ pepepriceUsd }}</td>
+
+</tr>
+<!--pepe ends-->
 
 <!--hash starts-->
 <!--
@@ -734,7 +743,7 @@ ${{ pepepriceUsd }}
 </td>
 -->
 
-<td><a href="{% url 'main:coredoge' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
+
 
 </tr>
 <tr>
@@ -762,6 +771,20 @@ ${{ pepepriceUsd }}
 
 
 <td><a href="{% url 'main:woof' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
+
+</tr>
+
+<tr>
+
+<td>
+<span class="d-flex align-items-center">
+<i class="bi bi-circle-fill fs-6px text-theme me-2"></i>
+{{ pepebaseToken.name }} - ${{ pepepriceUsd }}
+</span>
+</td>
+
+
+<td><a href="{% url 'main:pepe' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
 
 </tr>
 
