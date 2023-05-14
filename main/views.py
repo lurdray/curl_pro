@@ -2541,7 +2541,7 @@ def CoreView(request):
         price_percent_change = getValue["data"]["attributes"]["price_percent_change"]
         from_volume_in_usd = getValue["data"]["attributes"]["from_volume_in_usd"]
         dekatrons = rs.json()
-        pairs = dekatrons["pairs"][15]
+        pairs = dekatrons["pairs"][0]
         baseToken = pairs["baseToken"]
         priceNative = pairs["priceNative"]
         priceUsd = pairs["priceUsd"]

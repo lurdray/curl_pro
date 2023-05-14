@@ -53,13 +53,112 @@
 </div>
 </div>
 <br>
-
-
-<div class="row">
+<style type="text/css">
+    @media screen and (max-width: 600px) {
+        .reverse{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+</style>
 
 <div class="col-xl-4 col-lg-6">
+    <div class="row">
+        
+                
+                
+                
+               
+                
+                
+                
+                <div class="col-xl-4 col-4" >
+                    
+                    <div class="card mb-3 {% if priceChange.h1 > 0 %} bg-theme {% else %} bg-red {% endif %}" >
+                        
+                        <div class="card-body" style="text-align:center">
+                            
+                            <div class="d-flex fw-bold small">
+                                <span class="flex-grow-1">1hr:{{ priceChange.h1 }}%</span>
+                                
+                            </div> 
+                        </div>
+                        
+                        
+                        
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="col-xl-4 col-4 ">
+                    
+                    <div class="card mb-3 {% if priceChange.h6 > 0 %} bg-theme {% else %} bg-red {% endif %}">
+                        
+                        <div class="card-body" style="text-align:center">
+                            
+                            <div class="d-flex fw-bold small">
+                                <span class="flex-grow-1">6hr:{{ priceChange.h6 }}%</span>
+                                
+                            </div> 
+                        </div>
+                        
+                        
+                        
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4 col-4">
+                    
+                    <div class="card {% if priceChange.h24 > 0 %} bg-theme {% else %} bg-red {% endif %}">
+                        
+                        <div class="card-body" style="text-align:center">
+                            
+                            <div class="d-flex fw-bold small">
+                                <span class="flex-grow-1">24hr:{{ priceChange.h24 }}%</span>
+                                
+                            </div> 
+                        </div>
+                        
+                        
+                        
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+
+    </div>
+    </div>
+
+<div class="row reverse">
+
+
+
+<div class="col-xl-4 col-lg-6">
+    
 
 <div class="card mb-3">
+
 
 <div class="card-header d-flex align-items-center bg-white bg-opacity-15">
 <span class="flex-grow-1 fw-400">Token InFo</span>
