@@ -941,15 +941,7 @@ def NoneView(request):
         unitypriceChange = unitypairs["priceChange"]
         unityfdv = unitypairs["fdv"]
         
-        cdc = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x8bab1Ef0F175F6d7EBCE79ee277BA091832F6429")
-        cdcdekatron = cdc.json()
-        cdcpairs = cdcdekatron["pairs"][0]
-        cdcbaseToken = cdcpairs["baseToken"]
-        cdcpriceNative = cdcpairs["priceNative"]
-        cdcpriceUsd = cdcpairs["priceUsd"]
-        cdcvolume = cdcpairs["volume"]
-        cdcpriceChange = cdcpairs["priceChange"]
-        cdcfdv = cdcpairs["fdv"]
+        
         
         data = requests.get("https://api.dexscreener.com/latest/dex/tokens/0xc0E49f8C615d3d4c245970F6Dc528E4A47d69a44").json()
         pairs = data['pairs']
