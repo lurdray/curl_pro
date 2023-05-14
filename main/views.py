@@ -715,7 +715,7 @@ def NoneView(request):
         coredao = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x40375C92d9FAf44d2f9db9Bd9ba41a3317a2404f")
         
         coredaodekatron = coredao.json()
-        coredaopairs = coredaodekatron["pairs"][5]
+        coredaopairs = coredaodekatron["pairs"][0]
         coredaobaseToken = coredaopairs["baseToken"]
         coredaopriceNative = coredaopairs["priceNative"]
         coredaopriceUsd = coredaopairs["priceUsd"]
