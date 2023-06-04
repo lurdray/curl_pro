@@ -1208,7 +1208,7 @@ def GetUrlViaAddress(address):
         url = "ainu"
     elif address == "0xBb790D1e8A2d34e9d846bb00EA0b0380813375EE":
         url = "akio"
-    elif address == "0xBFa14641bf0fE84dE3fcf3Bf227900af445f09C3":
+    elif address == "0x165290c62126083e31345ebd74606eb562cddd66":
         url = "bcore"
     elif address == "0xbFf24592345094DFA4d6f75aFF5BE79AbCbC9bD9":
         url = "block"
@@ -3011,7 +3011,7 @@ def BcoreView(request):
     else:
         
         
-        rs = requests.get("https://api.dexscreener.com/latest/dex/tokens/0xBFa14641bf0fE84dE3fcf3Bf227900af445f09C3")
+        rs = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x165290c62126083e31345ebd74606eb562cddd66")
         resp = requests.get("https://app.geckoterminal.com/api/p1/core/pools/0xbb8502132c87ee31be0e2bc1cb8cc69374488261")
         getValue = resp.json()
         price_in_usd = getValue["data"]["attributes"]["price_in_usd"]
