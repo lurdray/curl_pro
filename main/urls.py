@@ -66,6 +66,7 @@ urlpatterns = [
 	path("yfi/", views.YfiView, name="yfi"),
 	path("pepe/", views.PepeView, name="pepe"),
 	path("map/", views.MapView, name="map"),
+	path("crystal/", views.CrystalView, name="crystal"),
 	path("more/", views.MoreView, name="more"),
 	path("coredoge/", views.CoredogeView, name="coredoge"),
 	path('token/<str:token_id>/', views.token_details, name='token_details'),
