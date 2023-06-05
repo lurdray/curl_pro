@@ -365,6 +365,19 @@ async def DekatronYfi():
     yfifdv = yfipairs["fdv"]
 
     return yfibaseToken, yfipriceNative, yfipriceUsd, yfivolume, yfipriceChange, yfifdv
+
+async def DekatronShield():
+    shield = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261")
+    shielddekatron = shield.json()
+    shieldpairs = shielddekatron["pairs"][0]
+    shieldbaseToken = shieldpairs["baseToken"]
+    shieldpriceNative = shieldpairs["priceNative"]
+    shieldpriceUsd =shieldpairs["priceUsd"]
+    shieldvolume = shieldpairs["volume"]
+    shieldpriceChange = shieldpairs["priceChange"]
+    shieldfdv = shieldpairs["fdv"]
+
+    return shieldbaseToken, shieldpriceNative, shieldpriceUsd, shieldvolume, shieldpriceChange, shieldfdv
     
 async def DekatronData():
     data = requests.get("https://api.dexscreener.com/latest/dex/tokens/0xc0E49f8C615d3d4c245970F6Dc528E4A47d69a44").json()
@@ -672,9 +685,10 @@ def NoneView(request):
         "0x9B944a707cfDE49b7c0a9593f88b17Dc2C05DB78",
         "0xAB82f8b18ea7929815076F152b8Fd24F8b267274",
         "0x9c765C62ad538011c2aAd815CaAeEc94551fbE9D",
+        "0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261",
         ]
 
-        name_db = ["Doken Super Chain (DSC)", "LoopNetwork (LOOP)", "IceCreamSwap (ICE)", "Bitgert (BRISE)", "Canto (Canto)", "Navis (NVS)", "Lunagens (LUNG)", "ShadowSwap (SHADOW)", "Coredao (CORE)", "Archerswap (BOW)", "Icecreamswap (ICE)", "Coreid (coreid)", "Crest Protocol (CPT)", "Yieldz (YZ)", "LFGSwap (LFG)", "Happy Token (HAPPY)", "3DCity (3dc)", "AI Core Token (Aicore)", "Aiinu (Aiinu)", "Akio Inu (Akio)", "Avocado Baby (Avo)", "BlockVerse (Block)", "Bitvexa (btv)", "Hobo Universe (Hobo)", "Woof (Woof)", "Starlybooks (Word)", "Staked Core (SCore)", "Core Bunny (cbunny)", "Core Share (cshare)", "CoreTomb (ctomb)", "Emperor (emperor)", "FlashX Max (FSXM)", "Green Ranger (GR)", "MemeRoyale (Royale)", "Miidas (miidas)", "Unity Core (Unity)", "Spoon (Poon)", "Coredoge (CDC)", "Pepe Token (pepe)", "4D Twin Maps (Map)", "YFI (YFI)"]
+        name_db = ["Doken Super Chain (DSC)", "LoopNetwork (LOOP)", "IceCreamSwap (ICE)", "Bitgert (BRISE)", "Canto (Canto)", "Navis (NVS)", "Lunagens (LUNG)", "ShadowSwap (SHADOW)", "Coredao (CORE)", "Archerswap (BOW)", "Icecreamswap (ICE)", "Coreid (coreid)", "Crest Protocol (CPT)", "Yieldz (YZ)", "LFGSwap (LFG)", "Happy Token (HAPPY)", "3DCity (3dc)", "AI Core Token (Aicore)", "Aiinu (Aiinu)", "Akio Inu (Akio)", "Avocado Baby (Avo)", "BlockVerse (Block)", "Bitvexa (btv)", "Hobo Universe (Hobo)", "Woof (Woof)", "Starlybooks (Word)", "Staked Core (SCore)", "Core Bunny (cbunny)", "Core Share (cshare)", "CoreTomb (ctomb)", "Emperor (emperor)", "FlashX Max (FSXM)", "Green Ranger (GR)", "MemeRoyale (Royale)", "Miidas (miidas)", "Unity Core (Unity)", "Spoon (Poon)", "Coredoge (CDC)", "Pepe Token (pepe)", "4D Twin Maps (Map)", "YFI (YFI)", 'Shield Protocol (Shield)']
 
         status = False
         result = None
@@ -940,6 +954,16 @@ def NoneView(request):
         unityvolume = unitypairs["volume"]
         unitypriceChange = unitypairs["priceChange"]
         unityfdv = unitypairs["fdv"]
+
+        shield = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261")
+        shielddekatron = shield.json()
+        shieldpairs = shielddekatron["pairs"][0]
+        shieldbaseToken = shieldpairs["baseToken"]
+        shieldpriceNative = shieldpairs["priceNative"]
+        shieldpriceUsd = shieldpairs["priceUsd"]
+        shieldvolume = shieldpairs["volume"]
+        shieldpriceChange = shieldpairs["priceChange"]
+        shieldfdv = shieldpairs["fdv"]
         
         
         
@@ -1131,6 +1155,15 @@ def NoneView(request):
             "unityvolume":unityvolume, 
             "unitypriceChange":unitypriceChange, 
             "unityfdv":unityfdv,
+
+            "shield":shield, 
+            "shieldbaseToken":shieldbaseToken, 
+            "shieldpriceNative":shieldpriceNative, 
+            "shieldpriceUsd":shieldpriceUsd, 
+            "shieldvolume":shieldvolume, 
+            "shieldpriceChange":shieldpriceChange, 
+            "shieldfdv":shieldfdv,
+            
             
             "aicore":aicore, 
             "aicorebaseToken":aicorebaseToken, 
@@ -1250,6 +1283,8 @@ def GetUrlViaAddress(address):
         url = "map"
     elif address == "0x9c765C62ad538011c2aAd815CaAeEc94551fbE9D":
         url = "yfi"
+    elif address == "0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261":
+        url = "shield"
 
     else:
         url = "none"
@@ -1347,6 +1382,8 @@ def GetUrlViaName(name):
         url = "map"
     elif name == "YFI (YFI)":
         url = "yfi"
+    elif name == "Shield Protocol (Shield)":
+        url = "shield"
     
         
     else:
@@ -1402,9 +1439,10 @@ def IndexView(request):
         "0x9B944a707cfDE49b7c0a9593f88b17Dc2C05DB78",
         "0xAB82f8b18ea7929815076F152b8Fd24F8b267274",
         "0x9c765C62ad538011c2aAd815CaAeEc94551fbE9D",
+        "0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261",
         ]
 
-        name_db = ["Doken Super Chain (DSC)", "LoopNetwork (LOOP)", "IceCreamSwap (ICE)", "Bitgert (BRISE)", "Canto (Canto)", "Navis (NVS)", "Lunagens (LUNG)", "ShadowSwap (SHADOW)", "Coredao (CORE)", "Archerswap (BOW)", "Icecreamswap (ICE)", "Coreid (coreid)", "Crest Protocol (CPT)", "Yieldz (YZ)", "LFGSwap (LFG)", "Happy Token (HAPPY)", "Young Parrot (YPC)", "Ignore Fud (4Token)", "3DCity (3dc)", "AI Core Token (Aicore)", "Aiinu (Aiinu)", "Akio Inu (Akio)", "Big Core (BCore)", "BlockVerse (Block)", "Bitvexa (Btv)", "Hobo Universe (Hobo)", "Woof (Woof)", "Starlybooks (Word)", "Staked Core (SCore)", "Core Bunny (cbunny)", "Core Share (cshare)", "CoreTomb (ctomb)", "Emperor (emperor)", "FlashX Max (FSXM)", "Green Ranger (GR)", "MemeRoyale (Royale)", "Miidas (miidas)", "Unity Core (Unity)", "Spoon (Poon)", "Coredoge (CDC)", "Pepe Token (pepe)", "4D Twin Map (Map)", "YFI (YFI)"]
+        name_db = ["Doken Super Chain (DSC)", "LoopNetwork (LOOP)", "IceCreamSwap (ICE)", "Bitgert (BRISE)", "Canto (Canto)", "Navis (NVS)", "Lunagens (LUNG)", "ShadowSwap (SHADOW)", "Coredao (CORE)", "Archerswap (BOW)", "Icecreamswap (ICE)", "Coreid (coreid)", "Crest Protocol (CPT)", "Yieldz (YZ)", "LFGSwap (LFG)", "Happy Token (HAPPY)", "Young Parrot (YPC)", "Ignore Fud (4Token)", "3DCity (3dc)", "AI Core Token (Aicore)", "Aiinu (Aiinu)", "Akio Inu (Akio)", "Big Core (BCore)", "BlockVerse (Block)", "Bitvexa (Btv)", "Hobo Universe (Hobo)", "Woof (Woof)", "Starlybooks (Word)", "Staked Core (SCore)", "Core Bunny (cbunny)", "Core Share (cshare)", "CoreTomb (ctomb)", "Emperor (emperor)", "FlashX Max (FSXM)", "Green Ranger (GR)", "MemeRoyale (Royale)", "Miidas (miidas)", "Unity Core (Unity)", "Spoon (Poon)", "Coredoge (CDC)", "Pepe Token (pepe)", "4D Twin Map (Map)", "YFI (YFI)", "Shield Protocol (Shield)"]
 
         status = False
         result = None
@@ -1462,7 +1500,7 @@ def IndexView(request):
         #candyfdv = candypairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronIgnore()]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronIgnore(), DekatronShield(),]
         
         try:
             loop = asyncio.get_event_loop()
@@ -1521,12 +1559,16 @@ def IndexView(request):
                     coreidlogo = item.result()[6]
                 except:
                     coreidlogo = None
+
+
         
             
         
         
             if len(item.result()) > 7:
-                token_list = item.result() 
+                token_list = item.result()
+
+
         
             
             if (item.result()[0]["address"]) == "0x66B96135d0c639D53e1f23b7a5849F6022883b41":
@@ -1541,6 +1583,8 @@ def IndexView(request):
                     spoonlogo = item.result()[6]
                 except:
                     spoonlogo = None
+
+            
         
             if (item.result()[0]["address"]) == "0x1a639e150d2210A4BE4a5F0857A9151B241E7AE4":
                 #bow = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x1a639e150d2210A4BE4a5F0857A9151B241E7AE4")
@@ -1690,6 +1734,7 @@ def IndexView(request):
             "spoonvolume":spoonvolume, 
             "spoonpriceChange":spoonpriceChange, 
             "spoonfdv":spoonfdv,
+
             
             #"cdc":cdc, 
             #"cdcbaseToken":cdcbaseToken, 
@@ -1835,7 +1880,7 @@ def MoreView(request):
         #candyfdv = candypairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(),]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(), DekatronShield()]
         loop = asyncio.get_event_loop()
         
         results, pending = loop.run_until_complete(asyncio.wait(futures))
@@ -3559,6 +3604,35 @@ def SpoonView(request):
         
         context = {"baseToken":baseToken,"priceNative":priceNative, "priceChange":priceChange, "volume":volume, "fdv":fdv, "volume":volume, "txns":txns, "priceUsd":priceUsd, "liquidity":liquidity, "txns":txns, "price_in_usd":price_in_usd, "fully_diluted_valuation":fully_diluted_valuation, "price_percent_change":price_percent_change, "from_volume_in_usd":from_volume_in_usd}
         return render(request, "main/spoon.html", context)
+
+def ShieldView(request):
+    if request.method == "POST":
+        pass
+    else:
+        
+        
+        rs = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x00f97c17f4dc4f3bfd2dd9ce5e67f3a339a8a261")
+        resp = requests.get("https://app.geckoterminal.com/api/p1/core/pools/0xbb8502132c87ee31be0e2bc1cb8cc69374488261")
+        getValue = resp.json()
+        price_in_usd = getValue["data"]["attributes"]["price_in_usd"]
+        fully_diluted_valuation = getValue["data"]["attributes"]["fully_diluted_valuation"]
+        price_percent_change = getValue["data"]["attributes"]["price_percent_change"]
+        from_volume_in_usd = getValue["data"]["attributes"]["from_volume_in_usd"]
+        dekatrons = rs.json()
+        pairs = dekatrons["pairs"][0]
+        baseToken = pairs["baseToken"]
+        priceNative = pairs["priceNative"]
+        priceUsd = pairs["priceUsd"]
+        volume = pairs["volume"]
+        txns = pairs["txns"]
+        priceChange = pairs["priceChange"]
+        liquidity = pairs["liquidity"]
+        volume = pairs["volume"]
+        txns = pairs["txns"]
+        fdv = pairs["fdv"]
+        
+        context = {"baseToken":baseToken,"priceNative":priceNative, "priceChange":priceChange, "volume":volume, "fdv":fdv, "volume":volume, "txns":txns, "priceUsd":priceUsd, "liquidity":liquidity, "txns":txns, "price_in_usd":price_in_usd, "fully_diluted_valuation":fully_diluted_valuation, "price_percent_change":price_percent_change, "from_volume_in_usd":from_volume_in_usd}
+        return render(request, "main/shield.html", context)
         
 def CoredogeView(request):
     if request.method == "POST":

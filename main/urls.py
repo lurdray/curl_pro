@@ -62,6 +62,7 @@ urlpatterns = [
 	path("miidas/", views.MiidasView, name="miidas"),
 	path("unity/", views.UnityView, name="unity"),
 	path("spoon/", views.SpoonView, name="spoon"),
+	path("shield/", views.ShieldView, name="shield"),
 	path("yfi/", views.YfiView, name="yfi"),
 	path("pepe/", views.PepeView, name="pepe"),
 	path("map/", views.MapView, name="map"),
