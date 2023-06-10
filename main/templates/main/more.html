@@ -96,34 +96,7 @@
 						</tr>
 					</thead>
 					<tbody class="text-body">
-						<tr>
-							
-							<td></td>
-							<td><a style="text-decoration:none" href="{% url 'main:pepe' %}"><img src="{% static 'assets/img/logo/pepe15.webp' %}" alt=""> {{ pepebaseToken.symbol }}</a></td>
-							
-							<td class="text-success">${{ pepepriceUsd }}</td>
-							{% if pepepriceChange.h1 > 0 %}
-							<td class="text-success">+{{ pepepriceChange.h1 }}%</td>
-							{% else %}
-							<td class="text-danger">{{ pepepriceChange.h1 }}%</td>
-							{% endif %}
-							
-							{% if pepepriceChange.h6 > 0 %}
-							<td class="text-success">+{{ pepepriceChange.h6 }}%</td>
-							{% else %}
-							<td class="text-danger">{{ pepepriceChange.h6 }}%</td>
-							{% endif %}
-							
-							{% if pepepriceChange.h24 > 0 %}
-							<td class="text-success">+{{ pepepriceChange.h24 }}%</td>
-							{% else %}
-							<td class="text-danger">{{ pepepriceChange.h24 }}%</td>
-							{% endif %}
-							<td>${{ pepevolume.h24|floatformat:2|intcomma}}</td>
-							<td>499,599,554.64</td>
-							<td>{{ pepefdv|intcomma }}</td>
-							
-						</tr>
+						
 						
 						<!--
 						<tr>

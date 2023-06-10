@@ -1916,7 +1916,7 @@ def MoreView(request):
         #candyfdv = candypairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(), DekatronShield()]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronUnity(), DekatronSpoon(), DekatronData(), DekatronMiidas(), DekatronScore(), DekatronBlock(), DekatronDc(), DekatronMap(), DekatronYpc(), DekatronHobo(), DekatronIgnore(), DekatronLfg(), DekatronCrest(), DekatronCshare(), DekatronCtomb(), DekatronWord(), DekatronRoyale(), DekatronYfi(), DekatronShield()]
         try:
             loop = asyncio.get_event_loop()
         
@@ -2079,18 +2079,7 @@ def MoreView(request):
                 except:
                     unitylogo = None
             
-            if (item.result()[0]["address"]) == "0x9B944a707cfDE49b7c0a9593f88b17Dc2C05DB78":
-                pepe = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x9B944a707cfDE49b7c0a9593f88b17Dc2C05DB78")
-                pepebaseToken = item.result()[0]
-                pepepriceNative = item.result()[1]
-                pepepriceUsd = item.result()[2]
-                pepevolume = item.result()[3]
-                pepepriceChange = item.result()[4]
-                pepefdv = item.result()[5]
-                try:
-                    pepelogo = item.result()[6]
-                except:
-                    pepelogo = None
+            
             
             if (item.result()[0]["address"]) == "0xcfd38184c30832917A2871695F91e5e61bBD41fF":
                 miidas = requests.get("https://api.dexscreener.com/latest/dex/tokens/0xcfd38184c30832917A2871695F91e5e61bBD41fF")
@@ -2424,14 +2413,6 @@ def MoreView(request):
             "crestvolume": crestvolume, 
             "crestpriceChange":crestpriceChange, 
             "crestfdv":crestfdv,
-            
-            "pepe":pepe, 
-            "pepebaseToken":pepebaseToken, 
-            "pepepriceNative":pepepriceNative, 
-            "pepepriceUsd":pepepriceUsd, 
-            "pepevolume":pepevolume, 
-            "pepepriceChange":pepepriceChange, 
-            "pepefdv":pepefdv,
             
             "miidas":miidas, 
             "miidasbaseToken":miidasbaseToken, 
