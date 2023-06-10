@@ -158,18 +158,7 @@ async def DekatronCdc():
 
     return cdcbaseToken, cdcpriceNative, cdcpriceUsd, cdcvolume, cdcpriceChange, cdcfdv
     
-async def DekatronPepe():
-    pepe = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x9B944a707cfDE49b7c0a9593f88b17Dc2C05DB78")
-    pepedekatron = pepe.json()
-    pepepairs = pepedekatron["pairs"][0]
-    pepebaseToken = pepepairs["baseToken"]
-    pepepriceNative = pepepairs["priceNative"]
-    pepepriceUsd = pepepairs["priceUsd"]
-    pepevolume = pepepairs["volume"]
-    pepepriceChange = pepepairs["priceChange"]
-    pepefdv = pepepairs["fdv"]
 
-    return pepebaseToken, pepepriceNative, pepepriceUsd, pepevolume, pepepriceChange, pepefdv 
 
 async def DekatronMiidas():
     miidas = requests.get("https://api.dexscreener.com/latest/dex/tokens/0xcfd38184c30832917A2871695F91e5e61bBD41fF")
@@ -1518,9 +1507,19 @@ def IndexView(request):
         #candyvolume = candypairs["volume"]
         #candypriceChange = candypairs["priceChange"]
         #candyfdv = candypairs["fdv"]
+
+        navis = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x43a8a925c1930A313D283359184A64c51a2bc0E9")
+        navisdekatron = navis.json()
+        navispairs = navisdekatron["pairs"][0]
+        navisbaseToken = navispairs["baseToken"]
+        navispriceNative = navispairs["priceNative"]
+        navispriceUsd = navispairs["priceUsd"]
+        navisvolume = navispairs["volume"]
+        navispriceChange = navispairs["priceChange"]
+        navisfdv = navispairs["fdv"]
         
         
-        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(), DekatronPepe(), DekatronMiidas(), DekatronIgnore(), DekatronShield(), DekatronCrystal(),]
+        futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(),  DekatronMiidas(), DekatronIgnore(), DekatronShield(), DekatronCrystal(),]
         
         try:
             loop = asyncio.get_event_loop()
@@ -1686,7 +1685,11 @@ def IndexView(request):
                 try:
                     shadowlogo = item.result()[6]
                 except:
-                    shadowlogo = item.result()[6] 
+                    shadowlogo = item.result()[6]
+
+
+
+
         
             else:
                 pass
@@ -1755,6 +1758,14 @@ def IndexView(request):
             "spoonpriceChange":spoonpriceChange, 
             "spoonfdv":spoonfdv,
 
+            "navis":navis, 
+            "navisbaseToken":navisbaseToken, 
+            "navispriceNative":navispriceNative, 
+            "navispriceUsd":navispriceUsd, 
+            "navisvolume":navisvolume, 
+            "navispriceChange":navispriceChange, 
+            "navisfdv":navisfdv,
+
             
             #"cdc":cdc, 
             #"cdcbaseToken":cdcbaseToken, 
@@ -1765,12 +1776,12 @@ def IndexView(request):
             #"cdcfdv":cdcfdv,
             
             #"pepe":pepe, 
-            "pepebaseToken":pepebaseToken, 
-            "pepepriceNative":pepepriceNative, 
-            "pepepriceUsd":pepepriceUsd, 
-            "pepevolume":pepevolume, 
-            "pepepriceChange":pepepriceChange, 
-            "pepefdv":pepefdv,
+            #"pepebaseToken":pepebaseToken, 
+            #"pepepriceNative":pepepriceNative, 
+            #"pepepriceUsd":pepepriceUsd, 
+            #"pepevolume":pepevolume, 
+            #"pepepriceChange":pepepriceChange, 
+            #"pepefdv":pepefdv,
             
             #"miidas":miidas, 
             "miidasbaseToken":miidasbaseToken, 

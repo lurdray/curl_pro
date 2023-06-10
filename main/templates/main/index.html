@@ -245,8 +245,8 @@
 <!--pepe starts-->
 <tr>
 
-<td><a style="text-decoration:none" href="{% url 'main:pepe' %}"><img src="{% static 'assets/img/logo/pepe15.webp' %}" alt=""> {{ pepebaseToken.name }}</a></td>
-<td class="text-end">{{ pepepriceUsd }}</td>
+<td><a style="text-decoration:none" href="{% url 'main:navis' %}"><img src="{% static 'assets/img/logo/navis.webp' %}" alt=""> {{ navisbaseToken.name }}</a></td>
+<td class="text-end">{{ navispriceUsd }}</td>
 
 </tr>
 <!--pepe ends-->
@@ -645,16 +645,16 @@ ${{ ignorefudpriceUsd }}
 <tr>
     
 <td>
-    <a style="text-decoration:none" href="{% url 'main:pepe' %}">
+    <a style="text-decoration:none" href="{% url 'main:navis' %}">
 <div class="d-flex">
 <div class="position-relative mb-2">
-<img src="{% static 'assets/img/logo/pepe.webp' %}" alt="">
+<img src="{% static 'assets/img/logo/navis30.webp' %}" alt="">
 
 </div>
 <div class="flex-1 ps-3">
 
-<div class="fw-500 text-inverse">{{ pepebaseToken.name }} ({{ pepebaseToken.symbol }})</div>
-${{ pepepriceUsd }}
+<div class="fw-500 text-inverse">{{ navisbaseToken.name }} ({{ navisbaseToken.symbol }})</div>
+${{ navispriceUsd }}
 </div>
 </div>
 </a>
@@ -664,26 +664,26 @@ ${{ pepepriceUsd }}
 <table class="mb-2">
 <tr>
 <td class="pe-3">Total Supply:</td>
-<td class="text-inverse text-opacity-75 fw-500">499,599,554.64</td>
+<td class="text-inverse text-opacity-75 fw-500">1,000,000,000,000</td>
 </tr>
 <tr>
 <td class="pe-3">24hr Volume:</td>
-<td class="text-inverse text-opacity-75 fw-500">${{ pepevolume.h24|floatformat:2|intcomma}}</td>
+<td class="text-inverse text-opacity-75 fw-500">${{ navisvolume.h24|floatformat:2|intcomma}}</td>
 </tr>
 
 
 <tr>
 <td class="pe-3 text-nowrap">FDV:</td>
-<td class="text-inverse text-opacity-75 fw-500">{{ pepefdv|intcomma }}</td>
+<td class="text-inverse text-opacity-75 fw-500">{{ navisfdv|intcomma }}</td>
 </tr>
 </table>
 </td>
-<td><a href="{% url 'main:pepe' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
+<td><a href="{% url 'main:navis' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
 
 </tr>
 
 
-<!--pepe ends-->
+<!--navis ends-->
 
 
 
@@ -779,12 +779,12 @@ ${{ pepepriceUsd }}
 <td>
 <span class="d-flex align-items-center">
 <i class="bi bi-circle-fill fs-6px text-theme me-2"></i>
-{{ pepebaseToken.name }} - ${{ pepepriceUsd }}
+{{ navisbaseToken.name }} - ${{ navispriceUsd }}
 </span>
 </td>
 
 
-<td><a href="{% url 'main:pepe' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
+<td><a href="{% url 'main:navis' %}" class="text-decoration-none text-inverse"><i class="bi bi-search"></i></a></td>
 
 </tr>
 
