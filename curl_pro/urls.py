@@ -10,6 +10,8 @@ urlpatterns = [
     path("", include("main.urls")),
     path("wallet/", include("wallet.urls")),
     path("app/", include("app_user.urls")),
+    path("staking/", include("staking.urls")),
+    path("launchpad/", include("launchpad.urls")),
 
 ]
 

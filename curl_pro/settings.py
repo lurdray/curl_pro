@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'wallet',
     'app_user',
+    "launchpad",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

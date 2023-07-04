@@ -1,0 +1,257 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled"></button>
+
+
+<div id="content" class="app-content">
+<div class="d-flex align-items-center mb-3">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div id="app" class="app app-content-full-height app-without-sidebar app-without-header">
+
+
+<div class="pos " id="pos">
+
+
+<h1 class="page-header">
+Curl Finance Staking Pool <small>Stake Curl earn any token of your choice.</small>
+</h1>
+
+
+<div class="d-flex align-items-center mb-3">
+
+    <a href="{% url 'stake:my_stakes' %}">My Stakes</a>
+
+</div>
+
+<div class="">
+<div class=" h-100 p-3" data-scrollbar="true" data-height="100%">
+<div class="row gx-3">
+
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 pb-3">
+        <div class="card h-100">
+        <div class="card-body h-100 p-1">
+        <div class="pos-product">
+        <div class="img" style="background-image: url({% static 'assets/img/staking_bg.png' %})"></div>
+        <div class="info">
+        <div class="title text-truncate" style="display:flex; justify-content: space-between;">
+            <div>CURL Pool(1)</div>
+            <img width="30px" src="https://media.discordapp.net/attachments/1024628534955745340/1040725380727844914/CORE_logo.png">
+        </div>
+        <br>
+        <a href="{% url 'stake:stake' ido_id '1' %}" class="btn btn-success d-block mb-2"><i class="fa fa-check fa-fw"></i>Stake 1 curl Now</a>
+        
+        <div class=" flex-1">
+        
+        
+        
+        
+        
+        </div>
+        
+        
+        <div>
+            
+        
+        <div class="row mb-2">
+        <div class="col-6">
+        <div>Status</div>
+        </div>
+        <div class="col-3 text-center"></div>
+        <div class="col-3 "><span class="text-theme">Live</span> </div>
+        </div>
+        
+        <div class="row mb-2">
+        <div class="col-6">
+        <div>APR</div>
+        </div>
+        <div class="col-3 text-center"></div>
+        <div class="col-3 "><span class="text-theme">20000%</span> </div>
+        </div>
+        <div class="row mb-2">
+        <div class="col-6">
+        <div>Your Stake</div>
+        </div>
+        <div class="col-3 text-center"></div>
+        <div class="col-3 "><span class="text-theme">0.000</span> </div>
+        </div>
+        
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="card-arrow">
+        <div class="card-arrow-top-left"></div>
+        <div class="card-arrow-top-right"></div>
+        <div class="card-arrow-bottom-left"></div>
+        <div class="card-arrow-bottom-right"></div>
+        </div>
+        </div>
+        </div>
+
+<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 pb-3">
+<div class="card h-100">
+<div class="card-body h-100 p-1">
+<div class="pos-product">
+<div class="img" style="background-image: url({% static 'assets/img/staking_bg.png' %})"></div>
+<div class="info">
+<div class="title text-truncate" style="display:flex; justify-content: space-between;">
+    <div>CURL Pool(2)</div>
+    <img width="30px" src="https://media.discordapp.net/attachments/1024628534955745340/1040725380727844914/CORE_logo.png">
+</div>
+<br>
+<a href="{% url 'stake:stake' ido_id '2' %}" class="btn btn-success d-block mb-2"><i class="fa fa-check fa-fw"></i>Stake 2 curl Now</a>
+
+<div class=" flex-1">
+
+
+
+
+
+</div>
+
+
+<div>
+    
+
+<div class="row mb-2">
+<div class="col-6">
+<div>Status</div>
+</div>
+<div class="col-3 text-center"></div>
+<div class="col-3 "><span class="text-theme">Live</span> </div>
+</div>
+
+<div class="row mb-2">
+<div class="col-6">
+<div>APR</div>
+</div>
+<div class="col-3 text-center"></div>
+<div class="col-3 "><span class="text-theme">20000%</span> </div>
+</div>
+<div class="row mb-2">
+<div class="col-6">
+<div>Your Stake</div>
+</div>
+<div class="col-3 text-center"></div>
+<div class="col-3 "><span class="text-theme">0.000</span> </div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="card-arrow">
+<div class="card-arrow-top-left"></div>
+<div class="card-arrow-top-right"></div>
+<div class="card-arrow-bottom-left"></div>
+<div class="card-arrow-bottom-right"></div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 pb-3">
+    <div class="card h-100">
+    <div class="card-body h-100 p-1">
+    <div class="pos-product">
+    <div class="img" style="background-image: url({% static 'assets/img/staking_bg.png' %})"></div>
+    <div class="info">
+    <div class="title text-truncate" style="display:flex; justify-content: space-between;">
+        <div>CURL Pool(3)</div>
+        <img width="30px" src="https://media.discordapp.net/attachments/1024628534955745340/1040725380727844914/CORE_logo.png">
+    </div>
+    <br>
+    <a href="{% url 'stake:stake' ido_id '3' %}" class="btn btn-success d-block mb-2"><i class="fa fa-check fa-fw"></i>Stake 3 curl Now</a>
+    
+    <div class=" flex-1">
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    <div>
+        
+    
+    <div class="row mb-2">
+    <div class="col-6">
+    <div>Status</div>
+    </div>
+    <div class="col-3 text-center"></div>
+    <div class="col-3 "><span class="text-theme">Live</span> </div>
+    </div>
+    
+    <div class="row mb-2">
+    <div class="col-6">
+    <div>APR</div>
+    </div>
+    <div class="col-3 text-center"></div>
+    <div class="col-3 "><span class="text-theme">20000%</span> </div>
+    </div>
+    <div class="row mb-2">
+    <div class="col-6">
+    <div>Your Stake</div>
+    </div>
+    <div class="col-3 text-center"></div>
+    <div class="col-3 "><span class="text-theme">0.000</span> </div>
+    </div>
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="card-arrow">
+    <div class="card-arrow-top-left"></div>
+    <div class="card-arrow-top-right"></div>
+    <div class="card-arrow-bottom-left"></div>
+    <div class="card-arrow-bottom-right"></div>
+    </div>
+    </div>
+    </div>
+
+</div>
+
+
+</div>
+
+
+<div class="card-arrow">
+<div class="card-arrow-top-left"></div>
+<div class="card-arrow-top-right"></div>
+<div class="card-arrow-bottom-left"></div>
+<div class="card-arrow-bottom-right"></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+</div>
+
+
+<a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+
+
+{% endblock %}
+
