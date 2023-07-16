@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'wallet',
     'app_user',
     "launchpad",
+    "staking",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

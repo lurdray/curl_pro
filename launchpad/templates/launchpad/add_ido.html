@@ -5,262 +5,285 @@
 {% block content %}
 
 
-<div class="login">
+<div id="content" class="app-content">
 
-{{data.sender}}
-<div class="login-content form-group">
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-xl-12">
+
+<div class="row">
+
+<div class="col-xl-12">
+<h1 class="page-header">
+Create Ido <small>create your ido...</small>
+</h1>
+<hr class="mb-4" />
+
+<div id="formControls" class="mb-5">
+<p>Textual form controls—like <code>&lt;input&gt;</code>s, <code>&lt;select&gt;</code>s, and <code>&lt;textarea&gt;</code>s—are styled with the .form-control class. Included are styles for general appearance, focus state, sizing, and more. Please read the <a href="https://getbootstrap.com/docs/5.1/components/forms/" target="_blank">official Bootstrap documentation</a> for the full list of options.</p>
+<div class="card">
+    {{data.sender}}
+<div class="card-body pb-2">
 <form method="POST" enctype="multipart/form-data">
-	{% csrf_token %}
-<h1 class="text-center">Add Ido</h1>
+    {% csrf_token %}
+<div class="row">
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Token Address <span class="text-danger">*</span></label>
-    </div>
-    <input required name="token_address" type="text" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Token Address <span class="text-danger">*</span></label>
+    <input required name="token_address" type="text" class="form-control  prc" placeholder="0x0000000000000000000......." /></div>
+</div>
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Name <span class="text-danger">*</span></label>
+    <input required name="name" type="text" class="form-control prc" placeholder="CurlFinance" />
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Token Symbol <span class="text-danger">*</span></label>
-    </div>
-    <input required name="token_symbol" type="text" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+</div>
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Token Symbol <span class="text-danger">*</span></label>
+    <input required name="token_symbol" type="text" class="form-control prc" placeholder="$CURL" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Name <span class="text-danger">*</span></label>
-    </div>
-    <input required name="name" type="text" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Total Supply <span class="text-danger">*</span></label>
+    <input required name="total_supply" type="number" step="0.0" class="form-control prc" placeholder="e.g 1234567844.5" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-12">
+    <div class="form-group mb-3">
         <label class="form-label">Describe your project <span class="text-danger">*</span></label>
+    
+    <textarea required name="description" type="text" class="form-control prc" placeholder="project description"></textarea>
     </div>
-    <input required name="description" type="text" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+</div>
+<hr>
+
+<div class="col-xl-4">
+<div class="form-group mb-3">
+    <label class="form-label">Link to your project <span class="text-danger">*</span></label>
+    <input required name="link" type="url" class="form-control prc" placeholder="e.g https://curlfinance.app" />
+</div>
+</div>
+<div class="col-xl-4">
+<div class="form-group mb-3">
+<label class="form-label" for="exampleFormControlFile1">Logo <span class="text-danger">*</span></label>
+<input type="file" name="logo" class="form-control" id="exampleFormControlFile1" />
+</div>
+</div>
+<div class="col-xl-4">
+<div class="form-group mb-3">
+<label class="form-label" for="exampleFormControlFile1">Image <span class="text-danger">*</span></label>
+<input type="file" name="image" class="form-control" id="exampleFormControlFile1" />
+</div>
+</div>
+<hr>
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Listing Price <span class="text-danger">*</span></label>
+    <input required name="listing_price" type="number" step="0.0" class="form-control bg-opacity-5 prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Total Supply <span class="text-danger">*</span></label>
-    </div>
-    <input required name="total_supply" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Presale Price <span class="text-danger">*</span></label>
+    <input required name="presale_price" type="number" step="0.0" class="form-control  bg-opacity-5 prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Link to your project <span class="text-danger">*</span></label>
-    </div>
-    <input required name="link" type="text" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Soft Cap ($Core)<span class="text-danger">*</span></label>
+    <input required name="soft_cap" type="number" step="0.0" class="form-control bg-opacity-5 prc" placeholder="100,000.5" />
+
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Logo <span class="text-danger">*</span></label>
-    </div>
-    <input required name="logo" type="file" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
-</div>
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Hard Cap ($Core)<span class="text-danger">*</span></label>
+    <input required name="hard_cap" type="number" step="0.0" class="form-control bg-opacity-5 prc" placeholder="200,000.0" />
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Image <span class="text-danger">*</span></label>
-    </div>
-    <input required name="image" type="file" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
 </div>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Listing Price <span class="text-danger">*</span></label>
-    </div>
-    <input required name="listing_price" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
-</div>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Presale Price <span class="text-danger">*</span></label>
-    </div>
-    <input required name="presale_price" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
-</div>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Soft Cap <span class="text-danger">*</span></label>
-    </div>
-    <input required name="soft_cap" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
-</div>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Hard Cap <span class="text-danger">*</span></label>
-    </div>
-    <input required name="hard_cap" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
 </div>
 
 <hr>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 0 Min <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier0_min" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 0 Min (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier0_min" type="number" step="0.000" class="form-control  prc" />
+
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 1 Min <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier1_min" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 0 Max (CUrl)<span class="text-danger">*</span></label>
+    <input required name="tier0_max" type="number" step="0.000" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 2 Min <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier2_min" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 1 Min (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier1_min" type="number" step="0.000" class="form-control prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 3 Min <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier3_min" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 1 Max (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier1_max" type="number" step="0.000" class="form-control  prc" />
+</div>
 </div>
 
-<hr>
-
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 0 Max <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier0_max" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 2 Min (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier2_min" type="number" step="0.000" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 1 Max <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier1_max" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 2 Max (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier2_max" type="number" step="0.000" class="form-control   prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 2 Max <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier2_max" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 3 Min (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier3_min" type="number" step="0.000" class="form-control  prc" />
 </div>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Tier 3 Max <span class="text-danger">*</span></label>
-    </div>
-    <input required name="tier3_max" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
 </div>
 
 
-<hr>
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Tier 3 Max (Curl)<span class="text-danger">*</span></label>
+    <input required name="tier3_max" type="number" step="0.000" class="form-control   prc" />
+</div>
+</div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-12">
+<div class="form-group mb-3">
         <small>Optional(Ignore, if you do not want whitelist contributors)</small>
         <label class="form-label">How Many Whitelist Users <span class="text-danger">*</span></label>
-    </div>
-    <input name="whitelist_limit" type="number" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input name="whitelist_limit" type="number" class="form-control  prc" placeholder="100" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <small>Optional(Ignore, if you do not want whitelist contributors)</small>
         <label class="form-label">Whitelist Start <span class="text-danger">*</span></label>
-    </div>
-    <input name="whitelist_start" type="datetime-local" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input name="whitelist_start" type="datetime-local" class="form-control prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <small>Optional(Ignore, if you do not want whitelist contributors)</small>
         <label class="form-label">Whitelist Stop <span class="text-danger">*</span></label>
-    </div>
-    <input name="whitelist_stop" type="datetime-local" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input name="whitelist_stop" type="datetime-local" class="form-control  prc" />
+</div>
 </div>
 
 <hr>
 
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Ido Start <span class="text-danger">*</span></label>
-    </div>
-    <input required name="ido_start" type="datetime-local" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Ido Start <span class="text-danger">*</span></label>
+    <input required name="ido_start" type="datetime-local" class="form-control prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Ido Stop <span class="text-danger">*</span></label>
-    </div>
-    <input required name="ido_stop" type="datetime-local" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Ido Stop <span class="text-danger">*</span></label>
+    <input required name="ido_stop" type="datetime-local" class="form-control  prc" />
+</div>
 </div>
 
 <hr>
-
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Allocation(Contributed Funds): Liquidity(%) <span class="text-danger">*</span></label>
-    </div>
-    <input required name="allocation_cf_liquidity" type="number" step="0.001" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+<div class="col-xl-6">
+<div class="form-group mb-3">
+    <label class="form-label">Allocation(Contributed Funds): Liquidity(%) <span class="text-danger">*</span></label>
+    <input required name="allocation_cf_liquidity" type="number" step="0.000" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <label class="form-label">Allocation(Contributed Funds): Project(%) <span class="text-danger">*</span></label>
-    </div>
-    <input required name="allocation_cf_project" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input required name="allocation_cf_project" type="number" step="0.0" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <label class="form-label">Allocation(Project Tokens): Liquidity(%) <span class="text-danger">*</span></label>
-    </div>
-    <input required name="allocation_pt_liquidity" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input required name="allocation_pt_liquidity" type="number" step="0.0" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <label class="form-label">Allocation(Project Tokens): Contributors(%) <span class="text-danger">*</span></label>
-    </div>
-    <input required name="allocation_pt_contributors" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input required name="allocation_pt_contributors" type="number" step="0.0" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
+<div class="col-xl-6">
+<div class="form-group mb-3">
         <label class="form-label">Allocation(Project Tokens): Project(%) <span class="text-danger">*</span></label>
-    </div>
-    <input required name="allocation_pt_project" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+    <input required name="allocation_pt_project" type="number" step="0.0" class="form-control  prc" />
+</div>
 </div>
 
-<div class="mb-3">
-    <div class="d-flex form-group">
-        <label class="form-label">Vesting Period(Optional) <span class="text-danger">*</span></label>
-    </div>
-    <select name="vesting_duration">
-        <option value="0">I do not want vesting</option>
-        <option value="3">3 Month</option>
+
+<div class="col-xl-6">
+<div class="form-group mb-3">
+<label class="form-label" for="exampleFormControlSelect1">Select dropdown</label>
+<select name="vesting_duration" class="form-select" id="exampleFormControlSelect1">
+<option value="0">I do not want vesting</option>
+        <option value="3">3 Months</option>
         <option value="6">6 Months</option>
         <option value="10">10 Months</option>
         <option value="10">12 Months</option>
-    </select>
-    <input name="allocation_pt_project" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+</select>
+<input name="allocation_pt_project" type="number" step="0.1" class="form-control form-control-lg bg-white bg-opacity-5 prc" />
+</div>
+</div>
+<div class="form-group mb-3">
+<button type="submit" class="btn btn-outline-theme d-block w-100 fw-500 mb-3">Add Ido</button>
+</div>
+</div>
+</div>
+<div class="card-arrow">
+<div class="card-arrow-top-left"></div>
+<div class="card-arrow-top-right"></div>
+<div class="card-arrow-bottom-left"></div>
+<div class="card-arrow-bottom-right"></div>
 </div>
 
-<hr>
-
-<div class="d-flex align-items-center mb-3">
-
-    <button type="submit" class="btn-default">Add Ido</button>
-
 </div>
+</div>
+</div>
+ 
+
+
 
 
 
 {% endblock %}
+
