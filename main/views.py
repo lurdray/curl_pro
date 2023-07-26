@@ -1509,16 +1509,28 @@ def IndexView(request):
         #candyfdv = candypairs["fdv"]
 
         navis = requests.get("https://api.dexscreener.com/latest/dex/tokens/0x43a8a925c1930A313D283359184A64c51a2bc0E9")
-        navisdekatron = navis.json()
-        navispairs = navisdekatron["pairs"][0]
-        navisbaseToken = navispairs["baseToken"]
-        navispriceNative = navispairs["priceNative"]
-        navispriceUsd = navispairs["priceUsd"]
-        navisvolume = navispairs["volume"]
-        navispriceChange = navispairs["priceChange"]
-        navisfdv = navispairs["fdv"]
+        #print(navis)
+        if navis.status_code != 200:
+            navisdekatron = navis.json()
+            navispairs = navisdekatron["pairs"][0]
+            navisbaseToken = navispairs["baseToken"]
+            navispriceNative = navispairs["priceNative"]
+            navispriceUsd = navispairs["priceUsd"]
+            navisvolume = navispairs["volume"]
+            navispriceChange = navispairs["priceChange"]
+            navisfdv = navispairs["fdv"]
         
-        
+        else:
+            navisdekatron = None
+            navispairs = None
+            navisbaseToken = None
+            navispriceNative = None
+            navispriceUsd = None
+            navisvolume = None
+            navispriceChange = None
+            navisfdv = None
+            
+            
         futures = [DekatronShadow(), DekatronBow(), DekatronIce(), DekatronCoredao(), DekatronCoreid(), DekatronWoof(), DekatronSpoon(), DekatronData(),  DekatronMiidas(), DekatronIgnore(), DekatronShield(), DekatronCrystal(),]
         
         try:
